@@ -13,7 +13,7 @@ restaurants = pd.DataFrame(columns = ['id', 'restaurant', 'url', 'newspaper', 'g
 
 restaurants_selected = st.multiselect("Filter which restaurants you want to see the reviews of:", list(restaurants.iloc[:,1]), list(restaurants.iloc[:,1]))
 
-restaurants_to_show = restaurants.loc[restaurants.loc[restaurant].isin(restaurants_selected)]
+restaurants_to_show = restaurants.loc[restaurants.loc['restaurant'].isin(restaurants_selected)]
 st.dataframe(restaurants)
 
 # Iitiate the map with a start location of gothenburg
