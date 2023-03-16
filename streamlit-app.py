@@ -24,8 +24,8 @@ tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   folium.Marker(
     location = [r.gps_lat, r.gps_long], 
-    popup="<p>Holy Smoke BBQ</p> <p>Recesent: Dagen nyheter  Betyg: 5/5 L&auml;nk: https://www.dn.se/kultur/holy-smoke-skansk-barbecue-pa-riktigt/</p>", 
-    tooltip=tooltip,
+    popup="test", 
+    tooltip=r.restaurant,
     icon=folium.Icon(color = r.color_marker, icon= None)
 ).add_to(m)
 
