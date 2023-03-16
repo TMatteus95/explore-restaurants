@@ -6,6 +6,10 @@ from urllib.error import URLError
 import folium
 from streamlit_folium import st_folium, folium_static
 
+restaurants = pd.DataFrame(columns = ['id', 'restaurant', 'url', 'newspaper', 'gps_lat', 'gps_long'],
+                           data = [[1,'HolySmoke BBQ', 'dn.se','Dagens Nyheter', 56.260860, 12.550790],
+                                   [2,'Vedens lustgård', 'gp.se','Göteborgs Posten',58.426000,13.464320]])
+
 
 
 m = folium.Map(location=[57.708870, 11.974560], zoom_start=6)
