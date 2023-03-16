@@ -22,9 +22,24 @@ m = folium.Map(location=[57.708870, 11.974560], zoom_start=6)
 # Adding a marker
 tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
+  
+  html="""
+    <h1> This is a big popup</h1><br>
+    With a few lines of code...
+    <p>
+    <code>
+        from numpy import *<br>
+        exp(-2*pi)
+    </code>
+    </p>
+    """
+  
+  iframe = branca.element.IFrame(html=html, width=500, height=300)
+  popup = folium.Popup(iframe, max_width=2650)
+  
   folium.Marker(
     location = [r.gps_lat, r.gps_long], 
-    popup="test", 
+    popup=popup, 
     tooltip=r.restaurant,
     icon=folium.Icon(color = r.color_marker, icon= None)
 ).add_to(m)
