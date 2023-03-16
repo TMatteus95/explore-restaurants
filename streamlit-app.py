@@ -12,9 +12,9 @@ restaurants = pd.DataFrame(columns = ['id', 'restaurant', 'url', 'newspaper', 'g
                            data = [[1,'HolySmoke BBQ', 'dn.se','Dagens Nyheter', 56.260860, 12.550790, 'red'],
                                    [2,'Vedens lustgård', 'gp.se','Göteborgs Posten',58.426000,13.464320, 'blue']])
 
-restaurants_selected = st.sidebar.multiselect("Filter which restaurants you want to see the reviews of:", list(restaurants.iloc[:,1]), list(restaurants.iloc[:,1]))
+restaurants_selected = st.sidebar.multiselect("Filter which restaurants you want to see the reviews of:", list(restaurants.iloc[:,3]), list(restaurants.iloc[:,3]))
 
-restaurants_to_show = restaurants.loc[restaurants.loc[:,'restaurant'].isin(restaurants_selected)]
+restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restaurants_selected)]
 st.dataframe(restaurants_to_show)
 
 # Iitiate the map with a start location of gothenburg
