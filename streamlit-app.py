@@ -26,7 +26,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     location = [r.gps_lat, r.gps_long], 
     popup="<p>Holy Smoke BBQ</p> <p>Recesent: Dagen nyheter  Betyg: 5/5 L&auml;nk: https://www.dn.se/kultur/holy-smoke-skansk-barbecue-pa-riktigt/</p>", 
     tooltip=tooltip,
-    icon=folium.Icon(color = r.color_marker, icon='fa-can-food', prefix='fa')
+    icon=folium.Icon(color = r.color_marker, icon= None)
 ).add_to(m)
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
