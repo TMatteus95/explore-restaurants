@@ -22,11 +22,13 @@ m = folium.Map(location=[57.708870, 11.974560], zoom_start=6)
 # Adding a marker
 tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
-  folium.Marker([r.gps_lat, r.gps_long], popup="<p>Holy Smoke BBQ</p> <p>Recesent: Dagen nyheter  Betyg: 5/5 L&auml;nk: https://www.dn.se/kultur/holy-smoke-skansk-barbecue-pa-riktigt/</p>", tooltip=tooltip
+  folium.Marker(
+    location = [r.gps_lat, r.gps_long], 
+    popup="<p>Holy Smoke BBQ</p> <p>Recesent: Dagen nyheter  Betyg: 5/5 L&auml;nk: https://www.dn.se/kultur/holy-smoke-skansk-barbecue-pa-riktigt/</p>", 
+    tooltip=tooltip,
+    icon=folium.Icon(color=r.color_marker)
 ).add_to(m)
-folium.Marker(
-    [56.260860, 12.550790], popup="<p>Holy Smoke BBQ</p> <p>Recesent: Dagen nyheter  Betyg: 5/5 L&auml;nk: https://www.dn.se/kultur/holy-smoke-skansk-barbecue-pa-riktigt/</p>", tooltip=tooltip
-).add_to(m)
+
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
 st_data = st_folium(m, width=700)
