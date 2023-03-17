@@ -18,7 +18,7 @@ restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restau
 
 
 # Iitiate the map with a start location of gothenburg
-m = folium.Map(location=[57.708870, 11.974560], zoom_start=6)
+m = folium.Map(location=[58.426000,13.464320], zoom_start=6)
 
 # Adding a marker
 tooltip = "Click me!"
