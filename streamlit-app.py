@@ -25,8 +25,7 @@ tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
-    <iframe src="demo_iframe.htm" name="iframe_a" title="Iframe Example"></iframe>
-    <p><a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>
+    <p>hello</p>
     """
   
   iframe = branca.element.IFrame(html=html, width=500, height=300)
