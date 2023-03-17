@@ -25,34 +25,10 @@ tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <style>
-    h1 {
-      color: blue;
-      font-family: verdana;
-      font-size: 300%;
-      opacity: 0.5
-    }
-    p {
-      color: red;
-      font-family: courier;
-      font-size: 160%;
-    }
-    body {
-      opacity: 1
-    }
-    
-    </style>
-    </head>
-    <body>
-
-    <h1>This is a heading</h1>
-    <p>This is a paragraph.</p>
-
-    </body>
-    </html>
+    <div style='opacity: 0.5'>
+        <h3>San Francisco</h3>
+        <p>Welcome to San Francisco! This is a beautiful city located in the heart of the Bay Area.</p>
+    </div>
     """
   
   iframe = branca.element.IFrame(html=html, width=400, height=200)
@@ -62,7 +38,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     location = [r.gps_lat, r.gps_long], 
     popup=popup, 
     tooltip=r.restaurant,
-    opacity= 0.5, 
+    opacity= 1, 
     icon=folium.Icon(color = r.color_marker, icon= None)
 ).add_to(m)
 
