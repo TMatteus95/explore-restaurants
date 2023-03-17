@@ -25,7 +25,7 @@ tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
-    <div style='background-color: rgba(255, 255, 255, 0.5);'>
+    <div style='background-color: rgba(255, 255, 255, 1);'>
         <h3>San Francisco</h3>
         <p>Welcome to San Francisco! This is a beautiful city located in the heart of the Bay Area.</p>
     </div>
