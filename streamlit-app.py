@@ -28,8 +28,8 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     <h1>{}</h1>
     """.format(r.restaurant)
   
-  iframe = branca.element.IFrame(html=html, width=500, height=300)
-  popup = folium.Popup(iframe, max_width=2650)
+  iframe = branca.element.IFrame(html=html, width=400, height=200)
+  popup = folium.Popup(iframe, max_width=400)
   
   folium.Marker(
     location = [r.gps_lat, r.gps_long], 
@@ -40,7 +40,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
-st_data = st_folium(m, width=1400)
+st_data = st_folium(m, width=700)
 
 
 st.dataframe(restaurants_to_show)
