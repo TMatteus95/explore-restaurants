@@ -33,6 +33,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
       color: blue;
       font-family: verdana;
       font-size: 300%;
+      opacity: 0.5
     }
     p {
       color: red;
@@ -40,7 +41,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
       font-size: 160%;
     }
     body {
-      opacity: 0
+      opacity: 1
     }
     
     </style>
