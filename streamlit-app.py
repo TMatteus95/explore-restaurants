@@ -42,7 +42,12 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     icon=folium.Icon(color = r.color_marker, icon= None)
 ).add_to(m)
 
+  
+m
+
 folium.TileLayer('cartodbdark_matter').add_to(m)
+
+
 
 st_data = st_folium(m, width=700)
 
