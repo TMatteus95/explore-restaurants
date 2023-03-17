@@ -15,7 +15,7 @@ restaurants = pd.DataFrame(columns = ['id', 'restaurant', 'url', 'newspaper', 'g
 restaurants_selected = st.sidebar.multiselect("Filter which restaurants you want to see the reviews of:", list(restaurants.iloc[:,3]), list(restaurants.iloc[:,3]))
 
 restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restaurants_selected)]
-st.dataframe(restaurants_to_show)
+
 
 # Iitiate the map with a start location of gothenburg
 m = folium.Map(location=[57.708870, 11.974560], zoom_start=6)
@@ -72,7 +72,10 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
-st_data = st_folium(m, width=700)
+st_data = st_folium(m, width=1400)
+
+
+st.dataframe(restaurants_to_show)
 
 
 
