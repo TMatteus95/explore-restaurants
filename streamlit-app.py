@@ -41,10 +41,14 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     opacity= 1, 
     icon=folium.Icon(color = r.color_marker, icon= None)
 )
-  marker._icon.style['background'] = 'rgba(0, 0, 0, 0.0)'
-  marker._icon.style['border-radius'] = '10px'
-  marker._icon.style['border'] = 'none'
-  marker._shadow.style['display'] = 'none'
+  marker.popup._template = """
+      <div class="folium-popup" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; opacity: 1 !important;">
+          {% for line in this.html %}
+              <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">{{ line[0] }}</div>
+              <div style="font-size: 14px; margin-bottom: 10px;">{{ line[1] }}</div>
+          {% endfor %}
+      </div>
+  """
   marker.add_to(m)
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
