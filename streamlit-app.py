@@ -34,17 +34,18 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   iframe = branca.element.IFrame(html=html, width=400, height=200)
   popup = folium.Popup(html, max_width=400, opacity = 0)
   
-  folium.Marker(
+  marker = folium.Marker(
     location = [r.gps_lat, r.gps_long], 
     popup=popup, 
     tooltip=r.restaurant,
     opacity= 1, 
     icon=folium.Icon(color = r.color_marker, icon= None)
-).add_to(m)
+)
   marker._icon.style['background'] = 'rgba(0, 0, 0, 0.0)'
   marker._icon.style['border-radius'] = '10px'
   marker._icon.style['border'] = 'none'
   marker._shadow.style['display'] = 'none'
+  marker.add_to(m)
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
