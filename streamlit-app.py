@@ -39,6 +39,10 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
       font-family: courier;
       font-size: 160%;
     }
+    body {
+      opacity: 0.5
+    }
+    
     </style>
     </head>
     <body>
