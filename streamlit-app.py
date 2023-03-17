@@ -25,7 +25,29 @@ tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
-    {}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+p {
+  color: red;
+  font-family: courier;
+  font-size: 160%;
+}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
     """.format(r.restaurant)
   
   iframe = branca.element.IFrame(html=html, width=400, height=200)
