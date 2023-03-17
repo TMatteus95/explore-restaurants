@@ -25,7 +25,7 @@ tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
-    <div style='background-color: rgba(255, 255, 255, 0.5);'>
+    <div style='background-color: rgba(255, 255, 255, 0.5); border-radius: 5px;'>
         <h3>San Francisco</h3>
         <p>Welcome to San Francisco! This is a beautiful city located in the heart of the Bay Area.</p>
     </div>
@@ -41,9 +41,10 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     opacity= 1, 
     icon=folium.Icon(color = r.color_marker, icon= None)
 ).add_to(m)
-
-  
-m
+  marker._icon.style['background'] = 'rgba(0, 0, 0, 0.0)'
+  marker._icon.style['border-radius'] = '10px'
+  marker._icon.style['border'] = 'none'
+  marker._shadow.style['display'] = 'none'
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
