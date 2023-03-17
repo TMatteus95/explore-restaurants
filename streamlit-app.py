@@ -62,6 +62,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     location = [r.gps_lat, r.gps_long], 
     popup=popup, 
     tooltip=r.restaurant,
+    opacity= 0.5, 
     icon=folium.Icon(color = r.color_marker, icon= None)
 ).add_to(m)
 
