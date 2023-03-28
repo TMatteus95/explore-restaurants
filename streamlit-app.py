@@ -36,7 +36,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   marker = folium.Marker(
     location = [r.gps_lat, r.gps_long], 
-    popup=popup, 
+    popup=folium.Popup('Hello'), 
     tooltip=r.restaurant,
     opacity= 1, 
     icon=folium.Icon(color = r.color_marker, icon= None)
