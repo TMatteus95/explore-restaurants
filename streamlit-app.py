@@ -44,7 +44,9 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
 
   marker.add_to(m)
   
-folium.LayerControl().add_to(m)
+html_to_insert = "<style>.leaflet-popup-content-wrapper, .leaflet-popup.tip {background-color: #000 !important; }</style>"
+
+m.get_root().header.add_child(folium.Element(html_to_insert))
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
 
