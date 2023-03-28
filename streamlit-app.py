@@ -21,7 +21,6 @@ restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restau
 m = folium.Map(location=[58.426000,13.464320], zoom_start=6)
 
 # Adding a marker
-tooltip = "Click me!"
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
@@ -31,8 +30,8 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     </div>
     """
   
-  iframe = branca.element.IFrame(html=html, width=400, height=200)
-  popup = folium.Popup(html, max_width=400, opacity = 1)
+  #iframe = branca.element.IFrame(html=html, width=400, height=200)
+  #popup = folium.Popup(html, max_width=400, opacity = 1)
   
   marker = folium.Marker(
     location = [r.gps_lat, r.gps_long], 
@@ -44,12 +43,10 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
 
   marker.add_to(m)
   
-html_to_insert = "<style>.leaflet-popup-content-wrapper, .leaflet-popup.tip {background-color: #000 !important; }</style>"
+#html_to_insert = "<style>.leaflet-popup-content-wrapper, .leaflet-popup.tip {background-color: #000 !important; }</style>"
+#m.get_root().header.add_child(folium.Element(html_to_insert))
 
-m.get_root().header.add_child(folium.Element(html_to_insert))
 folium.TileLayer('cartodbdark_matter').add_to(m)
-
-
 
 st_data = st_folium(m, width=700)
 
