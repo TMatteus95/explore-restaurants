@@ -32,7 +32,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     """
   
   iframe = branca.element.IFrame(html=html, width=400, height=200)
-  popup = folium.Popup(html, max_width=400, opacity = 0)
+  popup = folium.Popup(html, max_width=400, opacity = 1)
   
   marker = folium.Marker(
     location = [r.gps_lat, r.gps_long], 
