@@ -26,7 +26,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   html="""
     <div style='background-color: white; border-radius: 5px;'>
         <h3>{}</h3>
-        <p>Jag kan läsa mer om recensionen på {}: {}</p>
+        <p>Jag kan läsa mer om recensionen på {}: <a href="url">{}</a></p>
     </div>
     """.format(r.restaurant, r.newspaper, r.url)
   
