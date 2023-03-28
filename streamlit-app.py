@@ -24,11 +24,11 @@ m = folium.Map(location=[58.426000,13.464320], zoom_start=6)
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
-    <div style='background-color: pink; border-radius: 5px;'>
-        <h3>San Francisco</h3>
+    <div style='background-color: white; border-radius: 5px;'>
+        <h3>{}</h3>
         <p>Welcome to San Francisco! This is a beautiful city located in the heart of the Bay Area.</p>
     </div>
-    """
+    """.format(r.restaurant)
   
   iframe = branca.element.IFrame(html=html, width=400, height=200)
   popup = folium.Popup(html, max_width=400)
