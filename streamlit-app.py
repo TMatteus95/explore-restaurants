@@ -24,7 +24,7 @@ m = folium.Map(location=[58.426000,13.464320], zoom_start=6)
 for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   html="""
-    <div style='background-color: rgba(255, 255, 255, 0.5); border-radius: 5px;'>
+    <div style='background-color: pink; border-radius: 5px;'>
         <h3>San Francisco</h3>
         <p>Welcome to San Francisco! This is a beautiful city located in the heart of the Bay Area.</p>
     </div>
@@ -42,9 +42,6 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
 )
 
   marker.add_to(m)
-  
-html_to_insert = "<style>.leaflet-popup-content-wrapper, .leaflet-popup.tip {background-color: pink !important; }</style>"
-map_.get_root().header.add_child(folium.Element(html_to_insert))
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
