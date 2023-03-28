@@ -17,7 +17,7 @@ restaurants_selected = st.sidebar.multiselect("Filter which restaurants you want
 restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restaurants_selected)]
 
 
-# Iitiate the map with a start location of gothenburg
+# Initiate the map with a start location of gothenburg
 m = folium.Map(location=[58.426000,13.464320], zoom_start=6)
 
 # Adding a marker
@@ -35,7 +35,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   
   marker = folium.Marker(
     location = [r.gps_lat, r.gps_long], 
-    popup='hello', 
+    popup=folium.Popup("inline explicit Popup"), 
     tooltip=r.restaurant,
     icon=folium.Icon(color = r.color_marker, icon= None)
 )
