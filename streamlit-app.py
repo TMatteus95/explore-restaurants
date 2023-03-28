@@ -30,7 +30,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     </div>
     """.format(r.restaurant)
   
-  iframe = branca.element.IFrame(html=html, width=400, height=200)
+  iframe = branca.element.IFrame(html=html, width=100, height=200)
   popup = folium.Popup(html, max_width=400)
   
   # We can add ->     tooltip=r.restaurant
