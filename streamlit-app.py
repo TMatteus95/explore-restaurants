@@ -41,9 +41,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     opacity= 1, 
     icon=folium.Icon(color = r.color_marker, icon= None)
 )
-  marker.popup._template = """
-  hello
-  """
+
   marker.add_to(m)
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
