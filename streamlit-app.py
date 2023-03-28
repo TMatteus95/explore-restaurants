@@ -42,12 +42,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     icon=folium.Icon(color = r.color_marker, icon= None)
 )
   marker.popup._template = """
-      <div class="folium-popup" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; opacity: 1 !important;">
-          {% for line in this.html %}
-              <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">{{ line[0] }}</div>
-              <div style="font-size: 14px; margin-bottom: 10px;">{{ line[1] }}</div>
-          {% endfor %}
-      </div>
+  hello
   """
   marker.add_to(m)
 
