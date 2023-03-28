@@ -28,7 +28,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
         <h3>{}</h3>
         <p>Jag kan läsa mer om recensionen på {}: <a href="{}">{}</a></p>
     </div>
-    """.format(r.restaurant, r.newspaper, r.url, r.url.split('.')[1])
+    """.format(r.restaurant, r.newspaper, r.url, ".".join(r.url.split(".")[1:]))
   
   iframe = branca.element.IFrame(html=html, width=150, height=200)
   popup = folium.Popup(html, max_width=150)
