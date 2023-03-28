@@ -33,17 +33,18 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
   iframe = branca.element.IFrame(html=html, width=400, height=200)
   popup = folium.Popup(html, max_width=400)
   
+  # We can add ->     tooltip=r.restaurant
+  # for restuarant name when hover over marker
   marker = folium.Marker(
     location = [r.gps_lat, r.gps_long], 
     popup=popup, 
-    tooltip=r.restaurant,
     icon=folium.Icon(color = r.color_marker, icon= None)
 )
 
   marker.add_to(m)
   
-#html_to_insert = "<style>.leaflet-popup-content-wrapper, .leaflet-popup.tip {background-color: #000 !important; }</style>"
-#m.get_root().header.add_child(folium.Element(html_to_insert))
+html_to_insert = "<style>.leaflet-popup-content-wrapper, .leaflet-popup.tip {background-color: #000 !important; }</style>"
+m.get_root().header.add_child(folium.Element(html_to_insert))
 
 folium.TileLayer('cartodbdark_matter').add_to(m)
 
