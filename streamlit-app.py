@@ -31,7 +31,7 @@ for r in restaurants_to_show.itertuples(index=True, name='Pandas'):
     """.format(r.restaurant)
   
   iframe = branca.element.IFrame(html=html, width=100, height=200)
-  popup = folium.Popup(html, max_width=400)
+  popup = folium.Popup(html, max_width=100)
   
   # We can add ->     tooltip=r.restaurant
   # for restuarant name when hover over marker
