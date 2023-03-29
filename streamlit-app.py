@@ -11,9 +11,9 @@ from dateutil.relativedelta import relativedelta # to add days or years
 
 
 # Get data
-restaurants = pd.DataFrame(columns = ['id', 'restaurant', 'url', 'newspaper', 'gps_lat', 'gps_long', 'color_marker'],
-                           data = [[1,'HolySmoke BBQ', 'https://www.dn.se','Dagens Nyheter', 56.260860, 12.550790, 'red'],
-                                   [2,'Vedens lustgård', 'https://www.gp.se','Göteborgs Posten',58.426000,13.464320, 'blue']])
+restaurants = pd.DataFrame(columns = ['id', 'restaurant', 'url', 'newspaper', 'gps_lat', 'gps_long', 'color_marker', 'date_published'],
+                           data = [[1,'HolySmoke BBQ', 'https://www.dn.se','Dagens Nyheter', 56.260860, 12.550790, 'red', '2021-01-01'],
+                                   [2,'Vedens lustgård', 'https://www.gp.se','Göteborgs Posten',58.426000,13.464320, 'blue', '2022-12-01']])
 
 ###
 ### Create sidebar 
@@ -26,12 +26,12 @@ restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restau
 
 ## Select date
 format = 'MMM DD, YYYY'  # format output
-start_date = dt.date(year=2021,month=1,day=1)-relativedelta(years=2)  #  I need some range in the past
-end_date = dt.datetime.now().date()-relativedelta(years=2)
+start_date = restaurants.loc[:,'date_published'].min()
+end_date = restaurants.loc[:,'date_published'].max()
 max_days = end_date-start_date
-
 slider = st.sidebar.slider('Jag vill se recensioner publicerade mellan följande datum:', min_value=start_date, value=(start_date, end_date) ,max_value=end_date, format=format)
-
+mask = (restaurants.loc[:,'date_published'] > slider[0]) & (restaurants.loc[:,'date_published'] <= slider[1])
+restaurants = restaurants.loc[mask, :]
 
 
 # Initiate the map with a start location of gothenburg
