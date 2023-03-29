@@ -30,13 +30,8 @@ start_date = dt.date(year=2021,month=1,day=1)-relativedelta(years=2)  #  I need 
 end_date = dt.datetime.now().date()-relativedelta(years=2)
 max_days = end_date-start_date
 
-slider = st.sidebar.slider('Jag vill se recensioner publicerade inom följande intervall:', min_value=start_date, value=(start_date, end_date) ,max_value=end_date, format=format)
-## Sanity check
-st.table(pd.DataFrame([[start_date, slider, end_date]],
-              columns=['start',
-                       'selected',
-                       'end'],
-              index=['date']))
+slider = st.sidebar.slider('Jag vill se recensioner publicerade mellan följande datum:', min_value=start_date, value=(start_date, end_date) ,max_value=end_date, format=format)
+
 
 
 # Initiate the map with a start location of gothenburg
