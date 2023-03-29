@@ -26,8 +26,8 @@ restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restau
 
 ## Select date
 format = 'MMM DD, YYYY'  # format output
-start_date = datetime.strptime(restaurants.loc[:,'date_published'].min(), '%Y-%m-%d')
-end_date = datetime.strptime(restaurants.loc[:,'date_published'].max(), '%Y-%m-%d')
+start_date = dt.datetime.strptime(restaurants.loc[:,'date_published'].min(), '%Y-%m-%d')
+end_date = dt.datetime.strptime(restaurants.loc[:,'date_published'].max(), '%Y-%m-%d')
 max_days =  end_date-start_date
 slider = st.sidebar.slider('Jag vill se recensioner publicerade mellan följande datum:', min_value=start_date, value=(start_date, end_date) ,max_value=end_date, format=format)
 mask = (restaurants.loc[:,'date_published'] > slider[0]) & (restaurants.loc[:,'date_published'] <= slider[1])
