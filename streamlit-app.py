@@ -15,12 +15,16 @@ restaurants = pd.DataFrame(columns = ['id', 'restaurant', 'url', 'newspaper', 'g
                            data = [[1,'HolySmoke BBQ', 'https://www.dn.se','Dagens Nyheter', 56.260860, 12.550790, 'red'],
                                    [2,'Vedens lustgård', 'https://www.gp.se','Göteborgs Posten',58.426000,13.464320, 'blue']])
 
-restaurants_selected = st.sidebar.multiselect("Jag vill se recensioner från följande tidningar:", list(restaurants.iloc[:,3]), list(restaurants.iloc[:,3]))
+###
+### Create sidebar 
+###
 
+## Select newspaper
+restaurants_selected = st.sidebar.multiselect("Jag vill se recensioner från följande tidningar:", list(restaurants.iloc[:,3]), list(restaurants.iloc[:,3]))
+# filter data according to selection
 restaurants_to_show = restaurants.loc[restaurants.loc[:,'newspaper'].isin(restaurants_selected)]
 
-## Range selector
-cols1,_ = st.beta_columns((1,2)) # To make it narrower
+## Select date
 format = 'MMM DD, YYYY'  # format output
 start_date = dt.date(year=2021,month=1,day=1)-relativedelta(years=2)  #  I need some range in the past
 end_date = dt.datetime.now().date()-relativedelta(years=2)
